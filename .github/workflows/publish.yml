@@ -13,7 +13,7 @@ jobs:
       PUB_HOSTED_URL: https://pub.flutter-io.cn
       FLUTTER_STORAGE_BASE_URL: https://storage.flutter-io.cn
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
         with:
           path: xiachufang_flutter
       - uses: actions/setup-java@v1
@@ -21,11 +21,10 @@ jobs:
           java-version: '12.x'
 
       - name: Cache Flutter dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v1
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
-
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: ${{ env.flutter_version }}
