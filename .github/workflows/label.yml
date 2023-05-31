@@ -12,4 +12,4 @@ jobs:
       - name: Use Function
         run: |
           echo "${{ github.event.pull_request.labels.*.name }}"
-          echo "${{ contains(github.event.pull_request.labels.*.name, 'test') }}"
+          echo "${{ contains(github.event.pull_request.labels.*.name, 'bug') }}"
