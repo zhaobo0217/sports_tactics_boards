@@ -7,15 +7,15 @@ jobs:
   example_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Set Variable
-        run: echo "::set-output name=my_var::hello world"
       - name: Use Function
         run: |
-          echo "${{ github.event.pull_request.labels.*.name }}"
           echo "${{ contains(github.event.pull_request.labels.*.name, 'bug') }}"
-          tag=""
-          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'bug') }}" ]]; then
+          version=""
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'question') }}" ]]; then
             echo "Label found, do something"
+            version="-PVersionName=99.9.9 -PVersionCode=999"
           else
+            version="-PVersionName=88.9.9 -PVersionCode=899"
             echo "Label not found, do something else"
           fi
+          echo "$version"
