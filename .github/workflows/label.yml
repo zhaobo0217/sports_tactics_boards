@@ -11,7 +11,6 @@ jobs:
         run: echo "::set-output name=my_var::hello world"
       - name: Use Function
         run: |
-          echo "${{ env.my_var }}"  # 输出 hello world
-          echo "${{ env.my_var | uppercase }}"  # 输出 HELLO WORLD
-          echo "${{ contains(env.my_var, 'world') }}"  # 输出 true
-          echo "${{ read_file('README.md') }}"  # 读取 README.md 文件并输出内容
+          echo "${{ env.my_var }}"
+          echo "${{ contains(env.my_var, 'world') }}" 
+          echo "${{ read_file('README.md') }}"
