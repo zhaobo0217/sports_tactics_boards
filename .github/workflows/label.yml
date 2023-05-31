@@ -13,3 +13,9 @@ jobs:
         run: |
           echo "${{ github.event.pull_request.labels.*.name }}"
           echo "${{ contains(github.event.pull_request.labels.*.name, 'bug') }}"
+          tag=""
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'bug') }}" ]]; then
+            echo "Label found, do something"
+          else
+            echo "Label not found, do something else"
+          fi
