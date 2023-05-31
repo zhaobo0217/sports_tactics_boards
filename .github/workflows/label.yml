@@ -11,5 +11,5 @@ jobs:
         run: echo "::set-output name=my_var::hello world"
       - name: Use Function
         run: |
-          echo "${{ env.my_var }}"
-          echo "${{ contains(env.my_var, 'world') }}" 
+          echo "${{ github.event.pull_request.labels.*.name }}"
+          echo "${{ contains(github.event.pull_request.labels.*.name, 'test') }}"
