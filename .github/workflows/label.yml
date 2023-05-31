@@ -13,4 +13,3 @@ jobs:
         run: |
           echo "${{ env.my_var }}"
           echo "${{ contains(env.my_var, 'world') }}" 
-          echo "${{ read_file('README.md') }}"
