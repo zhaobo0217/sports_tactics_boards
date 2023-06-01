@@ -9,11 +9,11 @@ jobs:
     steps:
       - name: Use Function
         run: |
-          echo "${{ contains(github.event.pull_request.labels.*.name, 'invalid') }}"
+          echo "${{ contains(github.event.pull_request.labels.*.name, 'max version') }}"
           labels="${{ toJSON(github.event.pull_request.labels.*.name) }}"
           echo "$labels"
           versionName=""
-          if [[ "${{ contains(github.event.pull_request.labels.*.name, "max version") }}" == "true" ]]; then
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'max version') }}" == "true" ]]; then
             echo "Label found, do something"
             versionName="-PVersionName=99.9.9 -PVersionCode=999"
           else
