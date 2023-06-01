@@ -12,12 +12,12 @@ jobs:
           echo "${{ contains(github.event.pull_request.labels.*.name, 'invalid') }}"
           labels="${{ toJSON(github.event.pull_request.labels.*.name) }}"
           echo "$labels"
-          version=""
+          versionName=""
           if [[ "${{ contains(github.event.pull_request.labels.*.name, 'max version') }}" == "true" ]]; then
             echo "Label found, do something"
-            version="-PVersionName=99.9.9 -PVersionCode=999"
+            versionName="-PVersionName=99.9.9 -PVersionCode=999"
           else
-            version="-PVersionName=88.9.9 -PVersionCode=899"
+            versionName="-PVersionName=88.9.9 -PVersionCode=899"
             echo "Label not found, do something else"
           fi
-          echo "$version"
+          echo "$versionName"
