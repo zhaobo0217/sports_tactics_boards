@@ -10,7 +10,7 @@ jobs:
       - name: Use Function
         run: |
           echo "${{ contains(github.event.pull_request.labels.*.name, 'max version') }}"
-          labels="${{ toJSON(github.event.pull_request.labels.*.name) }}"
+          labels='${{ toJSON(github.event.pull_request.labels.*.name) }}'
           echo "$labels"
           max_version="${{ contains(github.event.pull_request.labels.*.name, 'max version') }}"
           if [[ "$max_version" == "true" ]]; then
