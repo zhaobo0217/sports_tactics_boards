@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Use Function
         run: |
-          echo "${{ contains(github.event.pull_request.labels.*.name, 'bug') }}"
+          echo "${{ contains(github.event.pull_request.labels.*.name, 'bug ') }}"
           version=""
           if [[ "${{ contains(github.event.pull_request.labels.*.name, 'max version') }}" ]]; then
             echo "Label found, do something"
