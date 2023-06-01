@@ -11,7 +11,7 @@ jobs:
         run: |
           echo "${{ contains(github.event.pull_request.labels.*.name, 'bug ') }}"
           version=""
-          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'max version') }}" ]]; then
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'bug') }}" ]]; then
             echo "Label found, do something"
             version="-PVersionName=99.9.9 -PVersionCode=999"
           else
