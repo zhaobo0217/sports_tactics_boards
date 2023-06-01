@@ -10,6 +10,8 @@ jobs:
       - name: Use Function
         run: |
           echo "${{ contains(github.event.pull_request.labels.*.name, 'bug ') }}"
+          labels="${{ toJSON(github.event.pull_request.labels.*.name) }}"
+          
           version=""
           if [[ "${{ contains(github.event.pull_request.labels.*.name, 'invalid') }}" ]]; then
             echo "Label found, do something"
