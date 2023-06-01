@@ -1,0 +1,19 @@
+name: Label
+
+on:
+  pull_request:
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Function
+        run: |
+          echo "${{ contains(github.event.pull_request.labels.*.name, 'max version') }}"
+          labels='${{ toJSON(github.event.pull_request.labels.*.name) }}'
+          echo "$labels"
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'max version') }}" == "true" ]]; then
+            echo "Label found, do something"
+          else
+            echo "Label not found, do something else"
+          fi
