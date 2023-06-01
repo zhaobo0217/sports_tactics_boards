@@ -12,7 +12,8 @@ jobs:
           echo "${{ contains(github.event.pull_request.labels.*.name, 'max version') }}"
           labels="${{ toJSON(github.event.pull_request.labels.*.name) }}"
           echo "$labels"
-          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'max version') }}" == "true" ]]; then
+          max_version="${{ contains(github.event.pull_request.labels.*.name, 'max version') }}"
+          if [[ "$max_version" == "true" ]]; then
             echo "Label found, do something"
           else
             echo "Label not found, do something else"
